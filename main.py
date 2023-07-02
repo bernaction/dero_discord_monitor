@@ -47,8 +47,8 @@ async def read_websocket(channel, WALLET):
                                               data=data).json()
                                 reward = r["result"]["block_header"]["reward"] / 1000000
                             except:
-                                print("Não foi possível pegar o reward")
-                                reward = -1
+                                print("Não foi possível pegar o reward. Utilizando o padrão.")
+                                reward = 61500
                             cotacao = requests.get("https://api.minerstat.com/v2/coins?list=" + "DERO").json()[0]["price"]
                             #difficulty = data["difficulty"]
                             print("Miniblock!")
@@ -57,12 +57,11 @@ async def read_websocket(channel, WALLET):
                             embed = discord.Embed(title=f':partying_face: \t NOVO BLOCO SOLO!\n', colour=0x0000ff)
                             embed.set_thumbnail(url='https://docs.dero.io/assets/logo.png')
                             total = reward * cotacao
-                            if reward != -1:
-                                embed.add_field(name=f':large_blue_diamond:  Valor:',
-                                                value=f'Block Reward: \t{reward:.6f} DERO'
-                                                      f'\nCotação:\t\t U${cotacao:.2f}'
-                                                      f'\n\nTotal: U${total:.2f}'
-                                                      f'\n'.replace(".", ","), inline=False)
+                            embed.add_field(name=f':large_blue_diamond:  Valor:',
+                                            value=f'Block Reward: \t{reward:.6f} DERO'
+                                                  f'\nCotação:\t\t U${cotacao:.2f}'
+                                                  f'\n\nTotal: U${total:.2f}'
+                                                  f'\n'.replace(".", ","), inline=False)
                             embed.add_field(name=f':stopwatch: Minerado:', value=f'às {timestamp}', inline=True)
                             embed.add_field(name=":arrow_up: Altura do Bloco:", value=height, inline=True)
                             embed.add_field(name="🌐  Link:", value=f'https://explorer.friendspool.club/block/{height}\n\u200b', inline=False)
