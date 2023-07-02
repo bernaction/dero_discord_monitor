@@ -4,4 +4,5 @@ Created by the CEO of the DERO Cryptocurrency Mining Pool - FriendsPool, JVX, an
 
 ## Installation
 Edit the `secret.json` file with a `Discord Channel ID`, a `Discord BOT TOKEN` and your full `DERO Wallet`.
+
 Install the libraries contained in the `requierements.txt` file and run in Python3
