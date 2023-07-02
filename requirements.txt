@@ -13,3 +13,4 @@ setuptools==68.0.0
 websockets==11.0.3
 wheel==0.40.0
 yarl==1.9.2
+requests~=2.31.0
