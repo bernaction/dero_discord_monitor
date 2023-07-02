@@ -1,2 +1,2 @@
 # dero_discord_monitor
-Dero Discord Monitor
+Create secret.json and complete
