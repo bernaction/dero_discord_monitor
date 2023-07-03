@@ -48,7 +48,7 @@ async def read_websocket(channel, WALLET):
                                 reward = r["result"]["block_header"]["reward"] / 1000000
                             except:
                                 print("Não foi possível pegar o reward. Utilizando o padrão.")
-                                reward = 61500
+                                reward = 61500 / 1000000
                             cotacao = requests.get("https://api.minerstat.com/v2/coins?list=" + "DERO").json()[0]["price"]
                             #difficulty = data["difficulty"]
                             print("Miniblock!")
@@ -64,7 +64,7 @@ async def read_websocket(channel, WALLET):
                                                   f'\n'.replace(".", ","), inline=False)
                             embed.add_field(name=f':stopwatch: Minerado:', value=f'às {timestamp}', inline=True)
                             embed.add_field(name=":arrow_up: Altura do Bloco:", value=height, inline=True)
-                            embed.add_field(name="🌐  Link:", value=f'https://explorer.friendspool.club/block/{height}\n\u200b', inline=False)
+                            embed.add_field(name=":globe_with_meridians: Link:", value=f'https://explorer.friendspool.club/block/{height}\n\u200b', inline=False)
 
                             embed.set_footer(text="discord.io/BernaCripto")
                             try:
